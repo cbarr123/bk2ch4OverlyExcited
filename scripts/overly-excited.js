@@ -22,19 +22,26 @@
 // // Invoke the function and pass in the array
 // addExcitement(sentence)
 
+ 
+
+
 let sentence = ["The","walrus","danced","through","the","trees","in","the","light","of","the","moon"];
 
-function addExcitement (theWordArray) {
+let addExcitement = (theWordArray, punctuation, numberPunctuation) => {
     let buildMeUp = ""
 
-    for (let i = 1; i < theWordArray.length; i++) {
-        if (i % 3 === 0){
-            buildMeUp = buildMeUp + "!"
+    for (let i = 0; i < theWordArray.length; i++) {
+        if ((i+1) % 3 === 0){
+            buildMeUp += `${theWordArray[i]}${punctuation.repeat(numberPunctuation)} `;
+            console.log(buildMeUp);
         } 
         else {
-        buildMeUp = buildMeUp + " " + sentence[i];
-        console.log(buildMeUp)
-        }
+            buildMeUp += `${theWordArray[i]} `;
+            console.log(buildMeUp);
+
+            }
+        
+        
         /*
             If the current word's place (not index) in the array
             is evenly divisible by 3, add an exclamation point
@@ -50,4 +57,4 @@ function addExcitement (theWordArray) {
 
 }
 
-addExcitement(sentence)
+addExcitement(sentence, "!", 10)
